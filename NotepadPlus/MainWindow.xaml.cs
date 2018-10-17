@@ -48,5 +48,17 @@ namespace NotepadPlus
             if (openFileDialog.ShowDialog() == true)
                 TextEditor.Text = File.ReadAllText(openFileDialog.FileName);
         }
+
+        private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            if (saveFileDialog.ShowDialog() == true)
+                File.WriteAllText(saveFileDialog.FileName, TextEditor.Text);
+        }
     }
 }

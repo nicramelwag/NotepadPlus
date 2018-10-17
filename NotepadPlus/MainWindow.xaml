@@ -14,6 +14,10 @@
         <CommandBinding Command="Open"
                         CanExecute="Open_CanExecute"
                         Executed="Open_Executed" />
+
+        <CommandBinding Command="Save"
+                        CanExecute="Save_CanExecute"
+                        Executed="Save_Executed" />
     </Window.CommandBindings>
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top" VerticalAlignment="Top" >
