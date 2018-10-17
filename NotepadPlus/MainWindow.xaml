@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:NotepadPlus"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" VerticalAlignment="Top" />
+        <TextBox Height="420" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" />
         
-    </Grid>
+
+    </DockPanel>
 </Window>
