@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using Microsoft.Win32;
 
 namespace NotepadPlus
 {
@@ -25,14 +27,26 @@ namespace NotepadPlus
             InitializeComponent();
         }
 
-        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        private void Close_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
         }
 
-        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void Close_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void Open_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+                TextEditor.Text = File.ReadAllText(openFileDialog.FileName);
         }
     }
 }

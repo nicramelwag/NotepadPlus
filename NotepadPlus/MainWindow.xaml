@@ -8,10 +8,14 @@
         Title="MainWindow" Height="450" Width="800">
     <Window.CommandBindings>
         <CommandBinding Command="Close"
-                        CanExecute="CommandBinding_CanExecute"
-                        Executed="CommandBinding_Executed" />
+                        CanExecute="Close_CanExecute"
+                        Executed="Close_Executed" />
+
+        <CommandBinding Command="Open"
+                        CanExecute="Open_CanExecute"
+                        Executed="Open_Executed" />
     </Window.CommandBindings>
-    <DockPanel>
+    <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top" VerticalAlignment="Top" >
             <MenuItem Header="_File">
                 <MenuItem Command="New" />
@@ -29,7 +33,7 @@
                 <MenuItem Header="Search" />
             </MenuItem>
         </Menu>
-        <TextBox Height="420" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <TextBox ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" x:Name="TextEditor" />
         
 
     </DockPanel>
